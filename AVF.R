@@ -1,7 +1,7 @@
 
-AVF <- function(file){
+AVF <- function(input,output){
   library(plyr);
-  mydata <- read.csv(file, header = FALSE, sep = ",",stringsAsFactors=,encoding = "utf-8")
+  mydata <- read.csv(input, header = FALSE, sep = ",",stringsAsFactors=,encoding = "utf-8")
   #print(head(mydata))
   row <- nrow(mydata)
   col <- ncol(mydata)
@@ -26,5 +26,5 @@ AVF <- function(file){
     mydata[i,"Score"] <- sum/col
     mydata[i,"Score2"] <- paste0(sum,"/" ,col)
   }
-  mydata
+  write.csv(mydata,output)
 }
